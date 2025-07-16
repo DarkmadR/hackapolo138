@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APOLO138 | Mesin Gacor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #ffd700;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #1a1a1a;
+      padding: 20px;
+    }
+
+    .logo-img {
+      max-width: 220px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 20px 10px;
+    }
+
+    p {
+      margin: 10px 20px;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+
+    .highlight {
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    input {
+      display: block;
+      margin: 15px auto;
+      padding: 12px;
+      font-size: 16px;
+      width: 80%;
+      max-width: 320px;
+      border-radius: 6px;
+      border: none;
+      background-color: #fff;
+      color: #000;
+    }
+
+    button {
+      background-color: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #ffea00;
+      transform: scale(1.02);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #00ff88;
+      animation: fadeIn 0.8s ease-out;
+      text-shadow: 0 0 10px #00ff88;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PROGRAM HACK SCROLL */
+    .program-scroll {
+      overflow-x: auto;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .program-list {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+      width: max-content;
+    }
+
+    .program-option {
+      background-color: #1a1a1a;
+      color: #ffd700;
+      border: 2px solid #ffd700;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      min-width: 160px;
+      text-align: center;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .program-option:hover,
+    .program-option.selected {
+      background-color: #ffd700;
+      color: #000;
+      box-shadow: 0 0 10px #ffd700;
+    }
+
+    .program-description {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    /* DEPOSIT & WITHDRAW HORIZONTAL */
+    .scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-top: 30px;
+      padding: 10px;
+    }
+
+    .scroll-box {
+      display: inline-block;
+      background-color: #000;
+      border: 2px solid #ffd700;
+      border-radius: 8px;
+      padding: 10px;
+      margin-right: 10px;
+      min-width: 160px;
+      font-family: monospace;
+    }
+
+    canvas#confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 99;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="apolo138.png" alt="Apolo138 Logo" class="logo-img">
+  </div>
+
+  <h1>MESIN PENINGKAT KEMENANGAN TERGACOR</h1>
+
+  <p>
+    Masukkan Username (pastikan telah terdaftar):<br />
+    Jika belum terdaftar, klik 
+    <a href="https://apolo138.biz.id" target="_blank">
+      <span class="highlight">DISINI</span>
+    </a>
+  </p>
+
+  <input type="text" placeholder="Masukkan User ID">
+
+  <!-- PROGRAM HACK -->
+  <div class="program-scroll">
+    <div class="program-list" id="programList">
+      <div class="program-option" onclick="selectProgram(this, 'Scatter Boost')">Scatter Boost</div>
+      <div class="program-option" onclick="selectProgram(this, 'Max Win Radar')">Max Win Radar</div>
+      <div class="program-option" onclick="selectProgram(this, 'Buyspin Analyzer')">Buyspin Analyzer</div>
+      <div class="program-option" onclick="selectProgram(this, 'Winrate 99%')">Winrate 99%</div>
+      <div class="program-option" onclick="selectProgram(this, 'RTP Detector')">RTP Detector</div>
+      <div class="program-option" onclick="selectProgram(this, 'Auto Scatter Finder')">Auto Scatter Finder</div>
+      <div class="program-option" onclick="selectProgram(this, 'Turbo Mode X')">Turbo Mode X</div>
+      <div class="program-option" onclick="selectProgram(this, '1000x Boost Hack')">1000x Boost Hack</div>
+    </div>
+  </div>
+
+  <div class="program-description" id="programDesc"></div>
+  <input type="hidden" id="selectedProgram">
+
+  <button onclick="showSuccess()">AKTIVASI</button>
+
+  <div id="success-message" class="success-message">
+    ✅ Program berhasil diaktifkan! Selamat bermain
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- DEPOSIT & WITHDRAW -->
+  <div class="scroll-container">
+    <div class="scroll-box">💰 DEPOSIT: I8Q*** 69.000</div>
+    <div class="scroll-box">💰 DEPOSIT: UJ2*** 150.000</div>
+    <div class="scroll-box">💰 DEPOSIT: KP7*** 500.000</div>
+    <div class="scroll-box">💰 DEPOSIT: WZ9*** 80.000</div>
+    <div class="scroll-box">💰 DEPOSIT: YU3*** 250.000</div>
+    <div class="scroll-box">🪙 WD: OK7*** 5.800.000</div>
+    <div class="scroll-box">🪙 WD: XP9*** 3.000.000</div>
+    <div class="scroll-box">🪙 WD: LT8*** 6.500.000</div>
+    <div class="scroll-box">🪙 WD: ZA1*** 4.000.000</div>
+    <div class="scroll-box">🪙 WD: QR3*** 2.800.000</div>
+  </div>
+
+  <audio id="beepSound" src="beep.mp3" preload="auto"></audio>
+
+  <script>
+    const programDescriptions = {
+      "Scatter Boost": "Meningkatkan peluang simbol scatter muncul di spin acak.",
+      "Max Win Radar": "Mendeteksi slot dengan pola kemenangan tertinggi.",
+      "Buyspin Analyzer": "Analisa jalur buyspin dengan RTP terbaik.",
+      "Winrate 99%": "Menargetkan permainan dengan winrate tertinggi.",
+      "RTP Detector": "Membaca RTP real-time dari provider.",
+      "Auto Scatter Finder": "Bot auto-spin hingga scatter muncul.",
+      "Turbo Mode X": "Mode cepat, percepat 2x tanpa delay.",
+      "1000x Boost Hack": "Kombinasi trik maxwin dan RTP booster."
+    };
+
+    function selectProgram(el, name) {
+      document.querySelectorAll('.program-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById("selectedProgram").value = name;
+      document.getElementById("programDesc").innerText = programDescriptions[name] || "";
+    }
+
+    function showSuccess() {
+      const msg = document.getElementById("success-message");
+      const program = document.getElementById("selectedProgram").value;
+      if (!program) {
+        alert("⚠️ Pilih salah satu program hack dulu!");
+        return;
+      }
+      msg.style.display = "block";
+      document.getElementById("beepSound").play();
+      launchConfetti();
+    }
+
+    function launchConfetti() {
+      const duration = 2000;
+      const end = Date.now() + duration;
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const particles = [];
+
+      for (let i = 0; i < 150; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 150 + 50,
+          color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+          tilt: Math.random() * 10 - 10,
+          tiltAngle: 0,
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+      }
+
+      function update() {
+        const now = Date.now();
+        particles.forEach(p => {
+          p.tiltAngle += 0.1;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.x += Math.sin(p.tiltAngle);
+          if (p.y > canvas.height) {
+            p.y = -10;
+            p.x = Math.random() * canvas.width;
+          }
+        });
+        if (now < end) {
+          requestAnimationFrame(draw);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      draw();
+    }
+  </script>
+</body>
+</html>
